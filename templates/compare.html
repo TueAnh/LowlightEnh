@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block nav_compare %}active{% endblock %}
+{% block content %}
+
+<h2>Low-light Image Enhancement</h2>
+
+<div>
+
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>          
+        </div>
+        <div>
+            <h4>Choose method
+            <select name="model" id="model_list">
+                <option value="zerodce">ZeroDCE</option>
+            </select>
+            </h4>
+        </div>
+        <div>
+            <h4>Choose compare method
+            <select name="model" id="compare_list">
+                <option value="nolspa">ZeroDCE_noLspa</option>
+                <option value="nolexp">ZeroDCE_noLexp</option>
+                <option value="nolcol">ZeroDCE_noLcol</option>
+                <option value="noltvA">ZeroDCE_noLtvA</option>
+            </select>
+            </h4>
+            <button type="button" class="btn btn-primary btn-lg " id='btn-compare'>Compare</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+    <input type="checkbox" id="zoomCheck">
+    <label for="zoomCheck">
+    <h3 id="result">
+                <span> </span>
+             
+    </h3>
+    </label> 
+    
+
+</div>
+
+{% endblock %}
